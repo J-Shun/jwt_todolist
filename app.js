@@ -2,11 +2,15 @@
 const loginForm = document.querySelector(".loginForm");
 const signUpForm = document.querySelector(".signUpForm");
 
-// input
+// input (sign up)
 const signUpEmail = document.querySelector(".signUpEmail");
 const nickName = document.querySelector(".nickName");
 const signUpPassword = document.querySelector(".signUpPassword");
 const signUpPasswordCheck = document.querySelector(".signUpPasswordCheck");
+
+// input (login)
+const loginEmail = document.querySelector(".loginEmail");
+const loginPassword = document.querySelector(".loginPassword");
 
 // button
 const loginBtn = document.querySelector(".loginBtn");
@@ -18,6 +22,7 @@ const url = "https://todoo.5xcamp.us/";
 const users = "users/";
 const obj = { user: {} };
 let passed = false;
+let token;
 
 // test123456@gmail.com
 // test123456
@@ -31,7 +36,10 @@ function toLogin(e) {
 
 function toSignUp(e) {
   e.preventDefault();
+  loginForm.classList.add("disappear");
   loginForm.classList.add("d-none");
+
+  signUpForm.classList.add("appear");
   signUpForm.classList.remove("d-none");
 }
 
@@ -111,11 +119,43 @@ function signUp(e) {
   }
 }
 
-// form rule check
+function login(e) {
+  e.preventDefault();
+  if (loginEmail.value < 1 || loginPassword.value < 1) {
+    alert("請輸入正確資料");
+    location.reload();
+    return;
+  } else {
+    obj.user.email = loginEmail.value;
+    obj.user.password = loginPassword.value;
+    axios
+      .post(url + users + "sign_in", obj)
+      .then((res) => {
+        alert(res.data.message);
+        token = res.headers.authorization;
+        localStorage.setItem("userToken", token);
+      })
+      .catch((err) => {
+        alert(res.data.message);
+      });
+  }
+}
+
+function redirect() {
+  if (localStorage.getItem("userToken")) {
+    document.location.href = "./todo.html";
+  } else {
+    console.log("no token");
+  }
+}
+
+// form rule check (sign up)
 signUpEmail.addEventListener("input", checkEmail);
 nickName.addEventListener("input", checkLength);
 signUpPassword.addEventListener("input", checkPassword);
 signUpPasswordCheck.addEventListener("input", doubleCheck);
+
+// form rule check ()
 
 // change form
 signUpPageBtn.addEventListener("click", toSignUp);
@@ -123,3 +163,8 @@ loginPageBtn.addEventListener("click", toLogin);
 
 // sign up
 signUpBtn.addEventListener("click", signUp);
+
+// login
+loginBtn.addEventListener("click", login);
+
+// redirect();

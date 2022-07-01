@@ -6,7 +6,9 @@ main {
 }
 
 .background-yellow {
-  background-color: #ffd370;
+  // background-color: #ffd370;
+  // background-image: linear-gradient(0deg, #cae0b7, #c9e3ef);
+  background-image: linear-gradient(0deg, #88c5e6, #aed7ef);
 }
 
 .logo {
@@ -54,4 +56,21 @@ main {
 
 .warning {
   color: #f00;
+}
+
+.appear {
+  animation-name: appear;
+  animation-duration: 0.5s;
+}
+
+@keyframes appear {
+  0% {
+    display: none;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

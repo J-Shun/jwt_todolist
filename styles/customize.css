@@ -5,7 +5,7 @@ main {
 }
 
 .background-yellow {
-  background-color: #ffd370;
+  background-image: linear-gradient(0deg, #88c5e6, #aed7ef);
 }
 
 .logo {
@@ -53,4 +53,35 @@ main {
 
 .warning {
   color: #f00;
+}
+
+.appear {
+  -webkit-animation-name: appear;
+          animation-name: appear;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+}
+
+@-webkit-keyframes appear {
+  0% {
+    display: none;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  0% {
+    display: none;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }/*# sourceMappingURL=customize.css.map */
