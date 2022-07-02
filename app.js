@@ -23,10 +23,11 @@ const users = "users/";
 const obj = { user: {} };
 let passed = false;
 let token;
+let nickname;
 
 // test123456@gmail.com
 // test123456
-// "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxNTg3Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjU2NTc0NjE5LCJleHAiOjE2NTc4NzA2MTksImp0aSI6ImIwMmExZDcyLTIwNDItNGExNi1iZWIxLWYxYTNkNjdjYTc2ZCJ9.nwnpk3N9P0WLfdlDrrayB1tBdnsMjm-lcKquY5ki0Vo"
+// "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxNjA4Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjU2NjY4NDkzLCJleHAiOjE2NTc5NjQ0OTMsImp0aSI6IjI4YzYyNmE1LTU2NmUtNGExYy05ZjU1LTFkNGRkMGI4Mzk2ZSJ9.pqLJ1FW1aHMnAlYG3yXqvVvndxf50x2HT1AOndRoIeQ"
 
 // change form
 function toLogin(e) {
@@ -131,9 +132,11 @@ function login(e) {
     axios
       .post(url + users + "sign_in", obj)
       .then((res) => {
-        alert(res.data.message);
+        alert("登入成功");
         token = res.headers.authorization;
+        nickname = res.data.nickname;
         localStorage.setItem("userToken", token);
+        localStorage.setItem("userNickname", nickname);
       })
       .catch((err) => {
         alert(res.data.message);

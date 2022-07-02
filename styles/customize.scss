@@ -1,21 +1,165 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap");
 
 main {
-  height: 100vh;
   font-family: "Noto Sans", sans-serif;
 }
 
-.background-yellow {
-  // background-color: #ffd370;
+.background-ao {
   // background-image: linear-gradient(0deg, #cae0b7, #c9e3ef);
   background-image: linear-gradient(0deg, #88c5e6, #aed7ef);
+}
+
+.background-ao2 {
+  background-image: linear-gradient(180deg, #88c5e6, #c0ddee);
+}
+
+.bg-board {
+  background-color: #fefdf9;
 }
 
 .logo {
   background-image: url(../image/check.svg);
   background-repeat: no-repeat;
   background-position: 5px 0;
-  margin-right: 4px;
+  margin-right: 8px;
+}
+
+.todo-container {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .border-radius {
@@ -50,12 +194,32 @@ main {
   padding: 12px 48px;
 }
 
+.todo-padding {
+  padding: 0 20px;
+}
+
+.todo-item {
+  border-bottom: 3px solid #afe2f3;
+}
+
 .fw {
   font-weight: 700;
 }
 
 .warning {
   color: #f00;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.plus {
+  top: 0;
+  bottom: 0;
+  right: 6px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .appear {
