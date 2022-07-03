@@ -9,24 +9,28 @@
     rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
     crossorigin="anonymous"
-  />
-    <link rel="stylesheet" href="./styles/customize.css" />
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./styles/all.css" />
     <title>TodoList</title>
   </head>
   <body>
-    <div class="background-ao2 vh-100">
-      <header class="container pt-4 mb-5">
+    <div class="background-ao vh-100 position-relative">
+      <header class="container pt-4 mb-4">
           <div class="row">
             <div class="col-6">
               <a
                   href="#"
                   class="d-flex align-items-center text-decoration-none text-dark mb-2"
-                >
-                  <img src="./image/outer.svg" class="logo" />
-                  <span class="fs-3 fw-bolder"> Free Your Memory </span>
-                </a>
+              >
+                <i class="fa-solid fa-feather logo fs-2"></i>
+                <span class="fs-3 fw-bolder"> Free Your Memory </span>
+              </a>
             </div>
-            <div class="col-6 text-dark">
+            <div class="col-6">
               <div class="d-flex align-items-center justify-content-end">
                 <span>XX的清單</span>
                 <button class="d-block btn-padding border-radius border-0">
@@ -37,38 +41,60 @@
           </div>
       </header>
       <main>
-        <div class="todo-container d-flex flex-column justify-content-center bg-board border-radius">
-          <div class="time d-flex justify-content-between todo-padding py-4 mb-2">
-            <div class="d-flex align-items-center fst-italic">
-              <div class="fs-2 fw-bold me-2">Monday</div>
-              <div class="dd me-2 fs-2 fw-bold">16</div>
-              <div class="date me-2">
-                <div class="mm">08</div>
-                <div class="yyyy">2022</div>
-              </div>
-            </div>
-            <div class="fs-2 fw-bold">08:39</div>
+        <div class="todo-container todo-padding d-flex flex-column justify-content-center bg-board border-radius shadow">
+          <div class="d-flex justify-content-between py-4">
+            <div class="week fs-2 fw-bold fst-italic me-2">Holiday</div>
+            <div class="time fs-2 fw-bold">00:00</div>
           </div>
-          <div class="position-relative mb-4">
+          <div class="position-relative mb-3">
             <input
               type="text"
-              class="form-control input-padding border-radius"
+              class="enter-bar form-control input-padding border-radius"
               id="loginPassword"
               placeholder="請輸入今日任務"
             />
             <img src="./image/plus 1.svg" class="plus position-absolute cursor-pointer" alt="add-btn">
           </div>
-          <ul class="todo-padding mb-3">
-            <li class="todo-item py-2 mb-3">不知道幹啥</li>
-            <li class="todo-item py-2 mb-3">不知道幹啥</li>
+          <ul class="d-flex justify-content-between gap-2 mb-4 fw-bold letter-space">
+            <li class="tag active py-3 flex-grow-1 text-center cursor-pointer border-radius all-tag text-white btn-shadow">所有項目</li>
+            <li class="tag py-3 flex-grow-1 text-center cursor-pointer border-radius yet-tag text-white btn-shadow">待辦項目</li>
+            <li class="tag py-3 flex-grow-1 text-center cursor-pointer border-radius finished-tag text-white btn-shadow">完成項目</li>
           </ul>
-          <div class="d-flex justify-content-between todo-padding mb-5">
-            <span>x個待完成項目</span>
-            <span class="cursor-pointer">清除已完成項目</span>
+          <ul class="todo-board mb-5">
+            <li class="todo-item bottom-line d-flex align-items-center position-relative">
+              <label class="label d-flex align-items-center w-100 cursor-pointer">
+                <input type="checkbox" class="d-none"/>
+                <span class="check-mark position-relative cursor-pointer me-2"></span>
+                <span class="content">不知道幹啥</span>
+              </label>
+              <i class="icon fa-solid fa-trash-can cursor-pointer"></i>
+            </li>
+            <li class="bottom-line d-flex align-items-center position-relative">
+              <label class="label d-flex align-items-center w-100 cursor-pointer">
+                <input type="checkbox" class="d-none"/>
+                <span class="check-mark position-relative cursor-pointer me-2"></span>
+                <span class="content">不知道幹啥</span>
+              </label>
+              <i class="icon fa-solid fa-trash-can cursor-pointer"></i>
+            </li>
+          </ul>
+          <div class="d-flex justify-content-between mb-5">
+            <span class="quantity">X個待完成項目</span>
+            <span class="clear-finished cursor-pointer">清除完成項目</span>
           </div>
         </div>
       </main>
+      <div class="legend position-absolute">
+        <div class="lay1">
+          <div class="tri"></div>
+        </div>
+        <div class="lay2">
+          <div class="tri"></div>
+          <div class="tri"></div>
+        </div>
+      </div>
     </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

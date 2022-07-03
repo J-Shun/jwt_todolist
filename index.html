@@ -10,12 +10,16 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./styles/customize.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./styles/all.css" />
     <title>Login</title>
   </head>
   <body>
     <main
-      class="background-ao vh-100 d-flex justify-content-center align-items-center fw"
+      class="background-ao vh-100 d-flex justify-content-center align-items-center fw text-dark"
     >
       <div class="container">
         <div class="row justify-content-center">
@@ -32,15 +36,12 @@
                 href="#"
                 class="d-flex align-items-center justify-content-center text-decoration-none text-dark mb-2"
               >
-                <img src="./image/outer.svg" class="logo" />
+                <i class="fa-solid fa-feather logo fs-2"></i>
                 <span class="fs-2 fw-bolder"> Free Your Memory </span>
               </a>
               <h2 class="fs-4 mb-4 fw">用待辦清單開啟你生活的一天</h2>
               <div class="mb-3">
-                <label for="loginInEmail" class="form-label fs-sm">Email</label>
-                <span id="emailHelp" class="form-text info fs-sm">
-                  請填寫此欄位
-                </span>
+                <label for="loginInEmail" class="form-label">Email</label>
                 <input
                   type="email"
                   class="loginEmail form-control input-padding input-width border-radius"
@@ -49,7 +50,7 @@
                 />
               </div>
               <div class="mb-4">
-                <label for="loginPassword" class="form-label fs-sm">密碼</label>
+                <label for="loginPassword" class="form-label">密碼</label>
                 <input
                   type="password"
                   class="loginPassword form-control input-padding input-width border-radius"
@@ -75,13 +76,13 @@
                 href="#"
                 class="d-flex align-items-center justify-content-center text-decoration-none text-dark mb-2"
               >
-                <img src="./image/outer.svg" class="logo" />
+                <i class="fa-solid fa-feather logo fs-2"></i>
                 <span class="fs-2 fw-bolder"> Free Your Memory </span>
               </a>
               <h2 class="fs-4 mb-4 fw">註冊帳號</h2>
               <div class="mb-3">
-                <label for="signUpEmail" class="form-label fs-sm">Email</label>
-                <span class="signUpEmailCheck warning fs-xs d-none"
+                <label for="signUpEmail" class="form-label">Email</label>
+                <span class="signUpEmailCheck warning d-none"
                   >請輸入正確Email</span
                 >
                 <input
@@ -92,10 +93,8 @@
                 />
               </div>
               <div class="mb-3">
-                <label for="nickName" class="form-label fs-sm">您的暱稱</label>
-                <span class="checkNickName warning fs-xs d-none"
-                  >請輸入暱稱</span
-                >
+                <label for="nickName" class="form-label">您的暱稱</label>
+                <span class="checkNickName warning d-none">請輸入暱稱</span>
                 <input
                   type="text"
                   class="nickName form-control input-padding input-width border-radius"
@@ -104,10 +103,8 @@
                 />
               </div>
               <div class="mb-3">
-                <label for="signUpPassword" class="form-label fs-sm"
-                  >密碼</label
-                >
-                <span class="checkSignUpPassword warning fs-xs d-none"
+                <label for="signUpPassword" class="form-label">密碼</label>
+                <span class="checkSignUpPassword warning d-none"
                   >輸入密碼必須大於8位數</span
                 >
                 <input
@@ -118,10 +115,10 @@
                 />
               </div>
               <div class="mb-4">
-                <label for="signUpPasswordCheck" class="form-label fs-sm"
+                <label for="signUpPasswordCheck" class="form-label"
                   >再次輸入密碼</label
                 >
-                <span class="doubleCheckPassword warning fs-xs d-none"
+                <span class="doubleCheckPassword warning d-none"
                   >請輸入正確密碼</span
                 >
                 <input
