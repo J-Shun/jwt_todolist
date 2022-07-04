@@ -1,3 +1,10 @@
+main {
+  @media (max-width: 768px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 .background-ao {
   // background-image: linear-gradient(0deg, #cae0b7, #c9e3ef);
   // background-image: linear-gradient(0deg, #88c5e6, #aed7ef);
@@ -18,7 +25,7 @@
 }
 
 .todo-container {
-  max-width: 600px;
+  max-width: 550px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 12px;
@@ -83,17 +90,13 @@
     height: 30px;
     border-radius: 50%;
     background-color: #f384a5;
-    transition: transform 0.3s;
+    transition: transform 0.2s;
     transform: translate(30px);
   }
 
   &:hover .circle {
     transform: translate(0px);
   }
-}
-
-.trash-icon {
-  font-size: 20px;
 }
 
 .cursor-pointer {
@@ -117,7 +120,7 @@
 }
 
 .todo-board {
-  max-height: 300px;
+  max-height: 250px;
   padding: 0 20px;
   overflow-y: auto;
 
@@ -173,6 +176,10 @@ input[type="checkbox"]:checked {
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
 }
 
+.no-event {
+  pointer-events: none;
+}
+
 .legend {
   width: 40px;
   height: 40px;
@@ -194,9 +201,8 @@ input[type="checkbox"]:checked {
     border-right: 10px solid transparent;
     border-bottom: 20px solid rgb(247, 204, 4);
     transition: all 0.3s;
-  }
-  &:hover .tri {
-    border-bottom-color: #f6f6aa;
+    animation: light alternate infinite;
+    animation-duration: 1s;
   }
 }
 
@@ -214,5 +220,14 @@ input[type="checkbox"]:checked {
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@keyframes light {
+  0% {
+    border-bottom: 20px solid rgb(247, 204, 4);
+  }
+  100% {
+    border-bottom-color: #f6f6aa;
   }
 }

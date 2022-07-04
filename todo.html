@@ -32,7 +32,6 @@
             </div>
             <div class="col-6">
               <div class="d-flex align-items-center justify-content-end">
-                <span class="owner">XX的清單</span>
                 <button class="logout d-block btn-padding border-radius border-0 bg-dark text-white">
                 登出
                 </button>
@@ -44,7 +43,7 @@
         <div class="todo-container todo-padding d-flex flex-column justify-content-center bg-board border-radius shadow">
           <div class="d-flex justify-content-between py-4">
             <div class="week fs-2 fw-bold fst-italic me-2">Holiday</div>
-            <div class="time fs-2 fw-bold">00:00</div>
+            <div class="time fs-2 fw-bold fst-italic">00:00</div>
           </div>
           <div class="position-relative mb-3">
             <input
@@ -61,7 +60,7 @@
             <li class="tag py-3 flex-grow-1 text-center cursor-pointer border-radius finished-tag text-white btn-shadow">完成項目</li>
           </ul>
           <ul class="todo-board mb-5">
-            <li class="todo-item bottom-line d-flex align-items-center position-relative">
+            <!-- <li class="todo-item bottom-line d-flex align-items-center position-relative">
               <label class="label d-flex align-items-center w-100 cursor-pointer">
                 <input type="checkbox" class="d-none"/>
                 <span class="check-mark position-relative cursor-pointer me-2"></span>
@@ -80,11 +79,11 @@
               <span class="circle d-flex justify-content-center align-items-center cursor-pointer">
                 <i class="icon fa-solid fa-trash-can text-white"></i>
               </span>
-            </li>
+            </li> -->
           </ul>
-          <div class="d-flex justify-content-between mb-5">
-            <button class="clear-finished btn-padding border-radius border-0 bg-transparent">清除完成項目</button>
-            <button class="clear-all btn-padding border-radius border-0 bg-transparent">全部刪除</button>
+          <div class="d-flex justify-content-between mb-4">
+            <span class="clear-finished p-3 cursor-pointer">刪除完成</span>
+            <span class="clear-all p-3 cursor-pointer">刪除全部</ㄋ>
           </div>
         </div>
       </main>
@@ -105,7 +104,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- <script src="todo.js"></script> -->
+    <script src="todo.js"></script>
   </body>
   </body>
 </html>
