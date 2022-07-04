@@ -32,8 +32,8 @@
             </div>
             <div class="col-6">
               <div class="d-flex align-items-center justify-content-end">
-                <span>XX的清單</span>
-                <button class="d-block btn-padding border-radius border-0">
+                <span class="owner">XX的清單</span>
+                <button class="logout d-block btn-padding border-radius border-0 bg-dark text-white">
                 登出
                 </button>
               </div>
@@ -67,20 +67,24 @@
                 <span class="check-mark position-relative cursor-pointer me-2"></span>
                 <span class="content">不知道幹啥</span>
               </label>
-              <i class="icon fa-solid fa-trash-can cursor-pointer"></i>
+              <span class="circle d-flex justify-content-center align-items-center cursor-pointer">
+                <i class="icon fa-solid fa-trash-can text-white"></i>
+              </span>
             </li>
-            <li class="bottom-line d-flex align-items-center position-relative">
+            <li class="todo-item bottom-line d-flex align-items-center position-relative">
               <label class="label d-flex align-items-center w-100 cursor-pointer">
                 <input type="checkbox" class="d-none"/>
                 <span class="check-mark position-relative cursor-pointer me-2"></span>
                 <span class="content">不知道幹啥</span>
               </label>
-              <i class="icon fa-solid fa-trash-can cursor-pointer"></i>
+              <span class="circle d-flex justify-content-center align-items-center cursor-pointer">
+                <i class="icon fa-solid fa-trash-can text-white"></i>
+              </span>
             </li>
           </ul>
           <div class="d-flex justify-content-between mb-5">
-            <span class="quantity">X個待完成項目</span>
-            <span class="clear-finished cursor-pointer">清除完成項目</span>
+            <button class="clear-finished btn-padding border-radius border-0 bg-transparent">清除完成項目</button>
+            <button class="clear-all btn-padding border-radius border-0 bg-transparent">全部刪除</button>
           </div>
         </div>
       </main>
@@ -101,7 +105,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="todo.js"></script>
+    <!-- <script src="todo.js"></script> -->
   </body>
   </body>
 </html>

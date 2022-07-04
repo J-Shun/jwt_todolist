@@ -76,8 +76,23 @@
 .fw {
   font-weight: 700;
 }
+.todo-item {
+  overflow: hidden;
+  .circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f384a5;
+    transition: transform 0.3s;
+    transform: translate(30px);
+  }
 
-.icon {
+  &:hover .circle {
+    transform: translate(0px);
+  }
+}
+
+.trash-icon {
   font-size: 20px;
 }
 
@@ -144,9 +159,6 @@ input[type="checkbox"]:checked {
     transform: scale(0);
     transition: transform 0.3s;
   }
-}
-
-.todo-item {
 }
 
 .letter-space {

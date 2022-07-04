@@ -112,10 +112,15 @@ function signUp(e) {
     axios
       .post(url + users, obj)
       .then((res) => {
-        console.log(res);
+        alert(res.data.message);
+        location.reload();
       })
       .catch((err) => {
-        console.log(err);
+        alert("此帳號密碼已有人註冊");
+        signUpEmail.value = "";
+        nickName.value = "";
+        signUpPassword.value = "";
+        signUpPasswordCheck.value = "";
       });
   }
 }
@@ -132,11 +137,11 @@ function login(e) {
     axios
       .post(url + users + "sign_in", obj)
       .then((res) => {
-        alert("登入成功");
         token = res.headers.authorization;
         nickname = res.data.nickname;
         localStorage.setItem("userToken", token);
         localStorage.setItem("userNickname", nickname);
+        redirect();
       })
       .catch((err) => {
         alert(res.data.message);
@@ -170,4 +175,4 @@ signUpBtn.addEventListener("click", signUp);
 // login
 loginBtn.addEventListener("click", login);
 
-// redirect();
+redirect();
