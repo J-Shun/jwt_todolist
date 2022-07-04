@@ -1,5 +1,5 @@
 main {
-  @media (max-width: 768px) {
+  @media (max-width: 576px) {
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -20,8 +20,9 @@ main {
   background-color: #fefdf9;
 }
 
-.logo {
+.fa-feather {
   margin-right: 8px;
+  transform: scaleX(-1);
 }
 
 .todo-container {
@@ -80,6 +81,10 @@ main {
   padding: 0 20px;
 }
 
+.fs-sm {
+  font-size: 12px;
+}
+
 .fw {
   font-weight: 700;
 }
@@ -92,6 +97,10 @@ main {
     background-color: #f384a5;
     transition: transform 0.2s;
     transform: translate(30px);
+
+    @media (max-width: 576px) {
+      transform: translate(0px);
+    }
   }
 
   &:hover .circle {
@@ -184,8 +193,7 @@ input[type="checkbox"]:checked {
   width: 40px;
   height: 40px;
   bottom: 50px;
-  right: 50px;
-  cursor: pointer;
+  right: 100px;
   .lay1 {
     display: flex;
     justify-content: center;
@@ -201,7 +209,18 @@ input[type="checkbox"]:checked {
     border-right: 10px solid transparent;
     border-bottom: 20px solid rgb(247, 204, 4);
     transition: all 0.3s;
-    animation: light alternate infinite;
+    animation: triangleLight alternate infinite;
+    animation-duration: 1s;
+  }
+
+  &::before {
+    content: "Loading";
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    animation: colorLight alternate infinite;
     animation-duration: 1s;
   }
 }
@@ -223,11 +242,20 @@ input[type="checkbox"]:checked {
   }
 }
 
-@keyframes light {
+@keyframes triangleLight {
   0% {
     border-bottom: 20px solid rgb(247, 204, 4);
   }
   100% {
     border-bottom-color: #f6f6aa;
+  }
+}
+
+@keyframes colorLight {
+  0% {
+    color: rgb(247, 204, 4);
+  }
+  100% {
+    color: #f6f6aa;
   }
 }

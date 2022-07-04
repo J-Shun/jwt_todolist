@@ -17,21 +17,26 @@ const clearAll = document.querySelector(".clear-all");
 const logout = document.querySelector(".logout");
 
 // display
+const owner = document.querySelector(".owner");
 const main = document.querySelector("main");
 const enterBar = document.querySelector(".enter-bar");
 const todoBoard = document.querySelector(".todo-board");
+const loading = document.querySelector(".legend");
 
 // function
 function init() {
+  loading.classList.remove("d-none");
   if (!localStorage.getItem("userToken")) {
     redirect();
   } else {
+    owner.textContent = `Hi! ${localStorage.getItem("userNickname")}`;
     axios
       .get(url, config)
       .then((res) => {
         data = res.data.todos;
         data.reverse();
         render();
+        loading.classList.add("d-none");
       })
       .catch((err) => {
         console.log(err);
@@ -104,6 +109,7 @@ function render() {
   }
   todoBoard.innerHTML = allContent;
   main.classList.remove("no-event");
+  loading.classList.add("d-none");
 }
 
 function time() {
@@ -150,6 +156,7 @@ function addTask() {
   const obj = { todo: {} };
   obj.todo.content = enterBar.value;
   enterBar.value = "";
+  loading.classList.remove("d-none");
 
   axios
     .post(url, obj, config)
@@ -163,10 +170,12 @@ function addTask() {
 }
 
 function toggleStatus(e) {
-  main.classList.add("no-event");
   if (e.target.nodeName !== "INPUT") return;
+  main.classList.add("no-event");
   const targetId = e.target.parentNode.parentNode.getAttribute("data-id");
   const targetObj = data.filter((item) => item.id === targetId)[0];
+  loading.classList.remove("d-none");
+
   axios
     .patch(url + targetId + "/toggle", "", config)
     .then((res) => {
@@ -180,11 +189,12 @@ function toggleStatus(e) {
 }
 
 function deleteTask(e) {
-  main.classList.add("no-event");
   if (!e.target.classList.contains("circle")) return;
+  main.classList.add("no-event");
   const targetId = e.target.parentNode.getAttribute("data-id");
-
   const targetItem = data.filter((item) => item.id === targetId)[0];
+  loading.classList.remove("d-none");
+
   axios
     .delete(url + targetId, config)
     .then((res) => {
@@ -199,6 +209,8 @@ function deleteTask(e) {
 function deleteFinished(e) {
   if (data.length < 1) return;
   main.classList.add("no-event");
+  loading.classList.remove("d-none");
+
   data.forEach((item) => {
     if (item.completed_at) {
       axios
@@ -217,6 +229,8 @@ function deleteFinished(e) {
 function deleteAll(e) {
   if (data.length < 1) return;
   main.classList.add("no-event");
+  loading.classList.remove("d-none");
+
   data.forEach((item) => {
     axios
       .delete(url + item.id, config)
@@ -235,6 +249,7 @@ function checkAll(e) {
   allTag.classList.add("active");
   yetTag.classList.remove("active");
   finishedTag.classList.remove("active");
+  loading.classList.remove("d-none");
   render();
 }
 
@@ -243,6 +258,7 @@ function checkYet(e) {
   yetTag.classList.add("active");
   allTag.classList.remove("active");
   finishedTag.classList.remove("active");
+  loading.classList.remove("d-none");
   render();
 }
 
@@ -251,6 +267,7 @@ function checkDone(e) {
   finishedTag.classList.add("active");
   allTag.classList.remove("active");
   yetTag.classList.remove("active");
+  loading.classList.remove("d-none");
   render();
 }
 
