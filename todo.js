@@ -210,20 +210,16 @@ function deleteFinished(e) {
   if (data.length < 1) return;
   main.classList.add("no-event");
   loading.classList.remove("d-none");
+  const target = data.filter((item) => item.completed_at);
 
-  data.forEach((item) => {
-    if (item.completed_at) {
-      axios
-        .delete(url + item.id, config)
-        .then((res) => {
-          data.splice(data.indexOf(item), 1);
-          render();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  });
+  axios
+    .all(target.map((item) => axios.delete(url + item.id, config)))
+    .then((res) => {
+      target.forEach((item) => {
+        data.splice(data.indexOf(item), 1);
+      });
+      render();
+    });
 }
 
 function deleteAll(e) {
@@ -231,17 +227,12 @@ function deleteAll(e) {
   main.classList.add("no-event");
   loading.classList.remove("d-none");
 
-  data.forEach((item) => {
-    axios
-      .delete(url + item.id, config)
-      .then((res) => {
-        data.splice(0, 1);
-        render();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
+  axios
+    .all(data.map((item) => axios.delete(url + item.id, config)))
+    .then((res) => {
+      data = [];
+      render();
+    });
 }
 
 function checkAll(e) {

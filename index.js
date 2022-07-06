@@ -25,10 +25,6 @@ let passed = false;
 let token;
 let nickname;
 
-// test123456@gmail.com
-// test123456
-// "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxNjA4Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjU2NjY4NDkzLCJleHAiOjE2NTc5NjQ0OTMsImp0aSI6IjI4YzYyNmE1LTU2NmUtNGExYy05ZjU1LTFkNGRkMGI4Mzk2ZSJ9.pqLJ1FW1aHMnAlYG3yXqvVvndxf50x2HT1AOndRoIeQ"
-
 // change form
 function toLogin(e) {
   e.preventDefault();
@@ -144,7 +140,7 @@ function login(e) {
         redirect();
       })
       .catch((err) => {
-        alert(res.data.message);
+        alert(err.response.data.message);
       });
   }
 }
